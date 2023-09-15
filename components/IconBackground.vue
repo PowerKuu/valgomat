@@ -9,12 +9,25 @@ defineProps<{
 </script>
 
 <template>
+    <div class="background"></div>
     <img :src="icon" class="icon"/>
 </template>
 
 <style scoped lang="scss">
+.background {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+
+    background-color: var(--weak-color);
+}
+
 .icon {
     position: absolute;
+
+    z-index: 2;
 
     width: 1rem;
     height: 1rem;
@@ -40,6 +53,4 @@ defineProps<{
         transform: rotate(360deg);
     }
 }
-
-
 </style>

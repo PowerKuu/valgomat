@@ -4,6 +4,7 @@ const props = defineProps<{
     iconHover?: boolean,
     color?: string,
     gap?: string,
+    iconBefore?: boolean,
 
     reverse?: boolean
 }>()
@@ -13,8 +14,9 @@ const buttonColor = computed(() => props.color || "var(--color)")
 
 <template>
     <Flex :gap="gap" class="button" align="center" justify="space-between" :data-reverse="!!reverse">
-        <slot></slot>
-        <img v-show="icon" :data-onlyHover="iconHover" class="icon" :src="icon"/>
+        <slot v-if="!iconBefore"></slot>
+        <img :data-rotate="iconBefore" v-show="icon" :data-onlyHover="iconHover" class="icon" :src="icon"/>
+        <slot v-if="iconBefore"></slot>
     </Flex>
 </template>
 
@@ -33,8 +35,6 @@ const buttonColor = computed(() => props.color || "var(--color)")
     padding: var(--paddingHorizontal) 1.25rem;
 
     transition: 0.2s;
-
-    padding-left: calc(var(--paddingHorizontal) + var(--gap) * 2);
 
     &[data-reverse="false"]:hover, &[data-reverse="true"] {
         cursor: pointer;
@@ -56,10 +56,14 @@ const buttonColor = computed(() => props.color || "var(--color)")
         &[data-onlyHover="true"] {
             animation: hideIcon 0.2s forwards;
         }
+
+        &[data-rotate="true"] {
+            transform: rotate(180deg);
+        }
     }
 
     &:hover {
-        img {
+        img[data-onlyHover="true"] {
             animation: showIcon 0.2s forwards;
         }
     }

@@ -15,6 +15,28 @@
   --weak-color: #eff3f8;
   --weak-text-color: #737380;
   --red-color: #e83f5b;
+
+  --side-amount: 30rem;
+}
+
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: all 0.5s;
+}
+
+.slide-left-enter-from {
+  transform: translate(var(--side-amount), 0);
+}
+.slide-left-leave-to {
+  transform: translate(calc(var(--side-amount) * -1), 0);
+}
+.slide-right-enter-from {
+  transform: translate(calc(var(--side-amount) * -1), 0);
+}
+.slide-right-leave-to {
+  transform: translate(var(--side-amount), 0);
 }
 
 html {
@@ -30,6 +52,8 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  overflow: hidden;
 }
 
 p {
