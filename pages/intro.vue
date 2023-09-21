@@ -20,7 +20,7 @@ const githubLink = "https://github.com/PowerKuu"
 
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, est eligendi repellendus quis expedita repudiandae autem pariatur dolores. Beatae id, distinctio architecto quos laudantium tenetur soluta ut sunt nam vero!</p>
             
-            <NuxtLink class="button" :href="`/question/${getNextQuestionID(-1)}`">
+            <NuxtLink class="button" :href="getQuestionUrlByOrder(1)">
                 <Button
                     :iconHover="true" 
                     color="var(--contrast-color)" 

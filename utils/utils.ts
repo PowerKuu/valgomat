@@ -15,13 +15,21 @@ export function getQuestionByID(id: string) {
     return question
 }
 
-export function getNextQuestionID(currentOrder: number) {
-    const sortedQuestions = config.questions.sort((a, b) => a.order - b.order)
-    const nextQuestion = sortedQuestions.find(q => q.order > currentOrder)
+export function getQuestionUrlByOrder(order: number) {
+    // Sort and get the nearest question
 
-    if (nextQuestion == undefined) {
-        throw `Could not find next question for order ${currentOrder}`
+    const sortedQuestions = config.questions.sort((a, b) => a.order - b.order)
+    const question = sortedQuestions.find(q => q.order >= order)
+
+    if (sortedQuestions.every(q => q.order > order)) {
+        return "/intro"
+    } else if (sortedQuestions.every(q => q.order < order)) {
+        return "/results"
     }
 
-    return nextQuestion.id
+    if (question == undefined) {
+        throw `Could not find question with order ${order}`
+    }
+
+    return `/question/${question.id}`
 }

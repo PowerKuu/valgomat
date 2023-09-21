@@ -25,7 +25,41 @@ const config: Config = {
             id: "name",
             order: 1,
 
-            text: "Mener du at vi skal ha mindre skatt i Norge?",
+            text: "Mener du at vi skal ha mindre skatt i Norge? 1",
+            ranks: {
+                "ap": 0,
+                "frp": 0,
+                "høyre": 0,
+                "krf": 0,
+                "mdg": 0,
+                "rødt": 0,
+                "sp": 0,
+                "sv": 0,
+                "venstre": 0
+            }
+        },
+        {
+            id: "name1",
+            order: 2,
+
+            text: "Mener du at vi skal ha mindre skatt i Norge? 2",
+            ranks: {
+                "ap": 0,
+                "frp": 0,
+                "høyre": 0,
+                "krf": 0,
+                "mdg": 0,
+                "rødt": 0,
+                "sp": 0,
+                "sv": 0,
+                "venstre": 0
+            }
+        },
+        {
+            id: "name2",
+            order: 3,
+
+            text: "Mener du at vi skal ha mindre skatt i Norge? 3",
             ranks: {
                 "ap": 0,
                 "frp": 0,
