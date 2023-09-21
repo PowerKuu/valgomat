@@ -11,7 +11,7 @@ const question = config.questions.find((value) => {
     return value.id === id
 })
 
-const selectedAnswer = useStorage("selectedAnswer")
+//const selectedAnswer = useStorage("selectedAnswer")
 
 const answerEmojis = [
     {
