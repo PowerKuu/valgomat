@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useStorage } from "@vueuse/core"
+import { useStorage, useSessionStorage } from "@vueuse/core"
 
 
 definePageMeta({
@@ -11,7 +11,27 @@ const question = config.questions.find((value) => {
     return value.id === id
 })
 
-//const selectedAnswer = useStorage("selectedAnswer")
+const sessionAnswers = useSessionStorage("answers", null as string | null)
+
+const selectedAnswer = computed({
+    get() {
+        const parsedSessionAnswers = JSON.parse(sessionAnswers.value ?? "{}")
+        const answer = parsedSessionAnswers?.[id] ?? null
+        
+        if (answer == null) return null
+        return parseFloat(answer)
+    },
+    set(value: number | null) {
+        let parsedSessionAnswers = JSON.parse(sessionAnswers.value ?? "{}")
+        console.log(parsedSessionAnswers)
+
+        parsedSessionAnswers[id] = value ?? null
+
+        console.log(parsedSessionAnswers)
+
+        sessionAnswers.value = JSON.stringify(parsedSessionAnswers)
+    }
+})
 
 const answerEmojis = [
     {
