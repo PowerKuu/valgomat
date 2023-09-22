@@ -1,3 +1,5 @@
+# Fri. 22 Sept - Jeg fiksett bugs og lagret bruker dataen i session storage mellom sider
+
 # Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
