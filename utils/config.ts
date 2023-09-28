@@ -61,7 +61,7 @@ const config: Config = {
 
             text: "Mener du at vi skal ha mindre skatt i Norge? 3",
             ranks: {
-                "ap": 0,
+                "ap": 0.5,
                 "frp": 0,
                 "høyre": 0,
                 "krf": 0,
