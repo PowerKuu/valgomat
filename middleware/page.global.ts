@@ -1,6 +1,13 @@
 
 export default defineNuxtRouteMiddleware((to, from) => {
-    function getOrder(id: string) {
+    function getOrder(id: string, route: string) {
+        if (!id) {
+            if (route == "/intro") return -1
+            else if (route == "/results") return 100
+
+            return -1
+        }
+
         const order = config.questions.find(q => q.id == id)?.order
 
         if (order == undefined) {
@@ -11,10 +18,8 @@ export default defineNuxtRouteMiddleware((to, from) => {
         return order
     }
 
-    const orderTo = typeof to.params.id == "string" ? getOrder(to.params.id) : -1
-    const orderFrom = typeof from.params.id == "string" ? getOrder(from.params.id) : -1
-
-
+    const orderTo = getOrder(to.params.id as string, to.path)
+    const orderFrom = getOrder(from.params.id as string, from.path)
 
     if (orderTo > orderFrom) {
         to.meta.pageTransition = { name: "slide-left" }
