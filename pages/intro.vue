@@ -15,10 +15,15 @@ const githubLink = "https://github.com/PowerKuu"
 
         <Flex align="center" direction="column" gap="2rem"  grow="1">
             <Flex gap="0.5rem">
-                <img v-for="icon of possibleIcons" class="icon" :src="getFullIconPath(icon)" alt="">
+                <img v-for="party of parties" class="icon" :src="getPartyIconPath(party)" alt="">
             </Flex>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, est eligendi repellendus quis expedita repudiandae autem pariatur dolores. Beatae id, distinctio architecto quos laudantium tenetur soluta ut sunt nam vero!</p>
+            <p>
+                Denne valgomaten er laget for å hjelpe deg med å finne ut hvilket parti du er mest enig med.
+                <br>
+                <br>
+                Dette er en veldig offisiell valgomat som ikke er et skole prosjekt!!
+            </p>
             
             <NuxtLink class="button" :href="getQuestionUrlByOrder(1)">
                 <Button

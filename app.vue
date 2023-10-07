@@ -101,8 +101,7 @@ a {
 }
 
 .icon {
-  width: 1.75rem;
-  height: 1.75rem;
+  height: 1.25rem;
 
   border-radius: 0.25rem;
 }

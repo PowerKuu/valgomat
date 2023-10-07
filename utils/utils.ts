@@ -1,8 +1,16 @@
 //["🤮", "😒", "😵‍💫", "😊", "😍"]
-import { Question } from "./config";
+export function capitalize(s: string) {
+    return s.charAt(0).toUpperCase() + s.slice(1)
+}
 
-export function getFullIconPath(icon: string) {
-    return `/icons/partier/${icon}`
+export function getPartyIconPath(icon: string) {
+    console.log(icon)
+    return `/icons/partier/${icon}.png`
+}
+
+export function percentageToHsl(percentage: number, hue1: number, hue2: number) {
+    var hue = (percentage * (hue2 - hue1)) + hue1
+    return `hsl(${hue}, 100%, 40%)`
 }
 
 export function getQuestionByID(id: string) {

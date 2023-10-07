@@ -11,7 +11,7 @@ const iconMap: {
 const iconCount = 30
 
 for (let i = 0; i < iconCount; i++) {
-    const icon = possibleIcons[Math.floor(Math.random() * possibleIcons.length)]
+    const icon = parties[Math.floor(Math.random() * parties.length)]
 
     iconMap.push({
         top: `${Math.random() * 90}%`,
@@ -19,7 +19,7 @@ for (let i = 0; i < iconCount; i++) {
         rotate: `${Math.random() * 360}deg`,
         scale: Math.random() * 2 + 2,
 
-        icon: getFullIconPath(icon)
+        icon: getPartyIconPath(icon)
     })
 }
 </script>
@@ -51,7 +51,6 @@ for (let i = 0; i < iconCount; i++) {
 .content {
     padding: 3rem;
     width: 30rem;
-
 
     height: 30rem;
     

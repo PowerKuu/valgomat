@@ -2,7 +2,7 @@ export type UnionOfArrayElements<ARR_T extends Readonly<unknown[]>> = ARR_T[numb
 
 
 export const parties = ["ap", "frp", "høyre", "krf", "mdg", "rødt", "sp", "sv", "venstre"] as const
-export const possibleIcons = parties.map(p => `${p}.png`)
+
 type Parties = UnionOfArrayElements<typeof parties>
 
 export interface Question {
